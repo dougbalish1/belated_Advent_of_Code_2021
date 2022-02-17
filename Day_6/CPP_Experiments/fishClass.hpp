@@ -1,4 +1,3 @@
-#include <mutex>
 #include <stack>
 using namespace std;
 
@@ -30,8 +29,8 @@ void Fish::live(stack<Fish>& fishQ){
                 day += 7;
             }
             else{
-                timer -= 1;
-                day += 1;
+                timer--;
+                day++;
             }
     }
 }

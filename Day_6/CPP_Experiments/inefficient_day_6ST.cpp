@@ -1,8 +1,7 @@
 #include <iostream>
 #include <fstream>
-#include <thread>
 #include <atomic>
-#include "fishClassST.hpp"
+#include "fishClass.hpp"
 
 #define individualMode true
 

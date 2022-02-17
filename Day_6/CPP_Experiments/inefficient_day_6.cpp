@@ -6,7 +6,7 @@
 #include <algorithm>
 #include "fishClass.hpp"
 
-atomic<int> atomic_count{0};
+atomic<uint64_t> atomic_count{0};
 vector<stack<Fish>*> stackVec;
 
 void runFish(int i);
@@ -48,10 +48,12 @@ int main(int argc, char **argv){
 }
 
 void runFish(int i){
+    uint64_t internalCount = 0;
     while(!stackVec[i]->empty()){
         Fish curFish = stackVec[i]->top();
         stackVec[i]->pop();
         curFish.live(*stackVec[i]);
-        atomic_count++;
+        internalCount++;
     }
+    atomic_count += internalCount;
 }

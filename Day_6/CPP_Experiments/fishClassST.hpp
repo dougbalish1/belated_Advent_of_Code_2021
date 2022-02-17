@@ -1,4 +1,3 @@
-#include <mutex>
 #include <stack>
 using namespace std;
 
@@ -9,7 +8,6 @@ class Fish{
     Fish(int, int, int);
     Fish(int, int);
     void live(stack<Fish>&);
-    stack<Fish> live();
 };
 
 Fish::Fish(int daySpawned, int stop, int daysToReproduce){
@@ -35,19 +33,4 @@ void Fish::live(stack<Fish>& fishQ){
                 day++;
             }
     }
-}
-
-stack<Fish> Fish::live(){
-    stack<Fish> offspring;
-    while(day < stopDay){
-            if(timer == 0){
-                offspring.push(Fish(day + 1, stopDay));
-                day += 7;
-            }
-            else{
-                timer--;
-                day--;
-            }
-    }
-    return offspring;
 }
